@@ -11,8 +11,7 @@ export default function NavigationBar() {
                 <Link className="navLink" to={"/"}>Women</Link>
                 <Link className="navLink" to={"/"}>Accessories</Link>
                 <CartButton />
-            </nav>
-            
+            </nav> 
         </div>
     )
 }

@@ -14,7 +14,3 @@ export default function CartButton({numberOfItems = 0}) {
 CartButton.propTypes = {
     numberOfItems: PropTypes.number
 }
-
-CartButton.defaultProps = {
-    numberOfItems: 0
-}
