@@ -4,7 +4,7 @@ nav {
     height: 100px;
     width: 100%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border-bottom: 1px solid black;
 }
 

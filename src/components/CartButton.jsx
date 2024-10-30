@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import cartIcon from "../assets/cart_icon.svg";
 import { Link } from "react-router-dom";
+import "./CartButton.css"
 
 export default function CartButton({numberOfItems = 0}) {
     return (

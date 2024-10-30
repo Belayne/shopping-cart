@@ -1,4 +1,5 @@
 
-.categoryText {
-    text-transform: capitalize;
+.loadingText {
+    line-height: 200px;
+    text-align: center;
 }

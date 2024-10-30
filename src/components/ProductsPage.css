@@ -1,0 +1,11 @@
+
+.categoryText {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.productsPage {
+    padding-top: 15px;
+    width: 100%;
+    margin: auto;
+}
