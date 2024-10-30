@@ -1,5 +1,7 @@
 import Homepage from "./components/Homepage"
 import App from "./App"
+import ProductsPage from "./components/ProductsPage"
+import Products from "./components/Products"
 
 const routes = [
         {
@@ -8,6 +10,14 @@ const routes = [
             children: [
                 {
                     index: true, element: <Homepage />
+                },
+                {
+                    path: "/products", element: <ProductsPage />,
+                    children: [
+                        {
+                            path: "/products/:category", element: <Products />
+                        }
+                    ]
                 }
             ]
         }

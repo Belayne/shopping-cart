@@ -9,7 +9,7 @@ export default function Homepage() {
                 Discover Your Next Favorite Find
                 Shop the Latest Trends Today!
             </h1>
-            <Link className="buttonLink" to="/">SHOP</Link>
+            <Link className="buttonLink" to="/products">SHOP</Link>
         </main>
     )
 }
