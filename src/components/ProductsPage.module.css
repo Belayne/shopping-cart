@@ -1,0 +1,21 @@
+
+.categoryText {
+    text-transform: capitalize;
+    text-align: center;
+}
+
+main {
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-rows: 100px repeat(auto-fill, 400px);
+    padding: 15px;
+    gap: 10px;
+    width: 90vw;
+    margin: auto;
+}
+
+h1 {
+    grid-column: 1/end;
+}

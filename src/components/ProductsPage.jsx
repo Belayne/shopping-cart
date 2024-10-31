@@ -1,5 +1,5 @@
 import { Outlet, useParams } from "react-router-dom"
-import "./ProductsPage.css";
+import styles from "./ProductsPage.module.css";
 
 export default function Products() {
     const params = useParams();
@@ -8,7 +8,7 @@ export default function Products() {
 
     return (
         <main className="productsPage">
-            <h1 className="categoryText">{categoryName}</h1>
+            <h1 className={styles.categoryText}>{categoryName}</h1>
             <Outlet />
         </main>
     )

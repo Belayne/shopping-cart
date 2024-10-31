@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom"
-import "./Homepage.css"
+import styles from "./Homepage.module.css"
 
 export default function Homepage() {
     
     return (
-        <main className="homepage">
-            <h1 className="heroText">
+        <main className={styles.homepage}>
+            <h1 className={styles.heroText}>
                 Discover Your Next Favorite Find
                 Shop the Latest Trends Today!
             </h1>
-            <Link className="buttonLink" to="/products">SHOP</Link>
+            <Link className={styles.buttonLink} to="/products">SHOP</Link>
         </main>
     )
 }

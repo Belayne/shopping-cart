@@ -4,7 +4,7 @@ import NavigationBar from './components/NavigationBar'
 import { useState } from 'react'
 
 function App() {
-  const numberOfItems = useState(0);
+  const [numberOfItems, setNumberOfItems] = useState(0);
 
   return (
     <>
