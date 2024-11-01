@@ -14,6 +14,7 @@ const getProducts = (category) => {
 
     useEffect(() => {
         const fetchProductData = async () => {
+            setLoading(true);
             try {
                 const response = await fetch(URL);
                 if(response.status >= 400) {
@@ -21,9 +22,13 @@ const getProducts = (category) => {
                 }
                 else {
                     const data = await response.json();
+                    if(data.length < 1) {
+                        throw new Error("Error: Page not found")
+                    }
                     setProductData(data);
                 }
             } catch (error) {
+                console.log(error)
                 setError(error);
             } finally {
                 setLoading(false)
@@ -45,12 +50,12 @@ export default function Products() {
     }
 
     if(error) {
-        return <p>Error: {error}</p>
+        return <p>{error.message}</p>
     }
 
     return (
         <>
-        {productData.map(product => <ProductCard imgSrc = {product.image} title = {product.title} cost = {product.price}/>)}
+        {productData.map(product => <ProductCard key = {product.id} imgSrc= {product.image} title = {product.title} cost = {product.price}/>)}
         </>
     )
 
