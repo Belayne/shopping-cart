@@ -24,3 +24,14 @@
     font-weight: normal;
     width: 300px;
 }
+
+.addToCartBtn {
+    border: unset;
+    font-weight: bold;
+    padding: 5px;
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}

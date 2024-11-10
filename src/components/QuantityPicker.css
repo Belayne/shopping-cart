@@ -1,0 +1,28 @@
+
+.quantityPicker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    gap: 15px;
+}
+
+.quantityPicker input, .quantityPicker button {
+    width: 35px;
+    height: 100%;
+}
+
+.quantityPicker button {
+    border: unset;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.quantityPicker input {
+    font-weight: bold;
+    text-align: center;
+}
+

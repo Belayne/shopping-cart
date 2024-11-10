@@ -3,15 +3,12 @@ import PropTypes from "prop-types";
 
 export default function QuantityPicker({quantity, plusButtonHandler, minusButtonHandler, inputHandler}) {
 
-    function onFocus(e) {
-        if(+e.target.value == 0) {
-            e.target.value = "";
-        }
-    }
+    const stringQuantity = quantity.toString()
+
     return (
         <div className="quantityPicker">
             <button onClick={minusButtonHandler}>-</button>
-            <input type="number" onFocus = {e => onFocus(e)} onChange={(e) => inputHandler(e)} value = {quantity} id="quantityInput" />
+            <input type="text" inputMode="numeric" onChange={(e) => inputHandler(e)} value = {stringQuantity} id="quantityInput" />
             <button onClick={plusButtonHandler}>+</button>
         </div>
     )

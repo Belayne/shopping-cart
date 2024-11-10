@@ -13,3 +13,11 @@ body {
   background-color: #faebd7;
   overflow-x: hidden;
 }
+
+button:active {
+  transform: scale(0.9);
+}
+
+button:hover {
+  cursor: pointer;
+}

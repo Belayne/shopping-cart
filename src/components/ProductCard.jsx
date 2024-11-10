@@ -3,6 +3,8 @@ import "./ProductCard.css"
 import PropTypes, { func } from "prop-types";
 import QuantityPicker from "./QauntityPicker";
 
+const MAX_QUANTITY = 100;
+
 export default function ProductCard({imgSrc, title, cost}) {
     const [quantity, setQuantity] = useState(0);
 
@@ -11,17 +13,23 @@ export default function ProductCard({imgSrc, title, cost}) {
     }
 
     function plusButtonHandler() {
-        setQuantity(quantity => quantity + 1);
+        if(quantity < MAX_QUANTITY){
+            setQuantity(quantity => quantity + 1);
+        }
     }
 
     function minusButtonHandler() {
-        if(quantity > 0)
+        if(quantity > 0){
             setQuantity(quantity => quantity - 1);
+        }
     }
 
     function inputHandler(e) {
-        let inputQuantity = +e.target.value;
-        inputQuantity = inputQuantity > 0? inputQuantity: 0;
+        let trimmedQuantity = e.target.value.replace(/^0+/, "");
+        let inputQuantity = trimmedQuantity? Number.parseInt(trimmedQuantity, 10): 0;
+
+        inputQuantity = inputQuantity < 0? 0:
+                        inputQuantity > MAX_QUANTITY? MAX_QUANTITY: inputQuantity;
 
         setQuantity(inputQuantity)
     }
@@ -35,7 +43,7 @@ export default function ProductCard({imgSrc, title, cost}) {
                             plusButtonHandler= {plusButtonHandler}
                             inputHandler={inputHandler} />
             <p>{"$" + cost}</p>
-            <button onClick={handleCartClick}>Add to cart</button>
+            <button className="addToCartBtn" onClick={handleCartClick}>Add to cart</button>
         </article>
     )
 }
