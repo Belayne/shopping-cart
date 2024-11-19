@@ -4,12 +4,16 @@ import NavigationBar from './components/NavigationBar'
 import { useState } from 'react'
 
 function App() {
-  const [numberOfItems, setNumberOfItems] = useState(0);
+  const [numberOfItems, setNumberOfItems] = useState([]);
+
+  function handleCartQuantity(quantity) {
+    setNumberOfItems(quantity)
+  }
 
   return (
     <>
       <NavigationBar numberOfItems={numberOfItems}/>
-      <Outlet />
+      <Outlet context={handleCartQuantity}/>
     </>
   )
 }

@@ -2,16 +2,13 @@ import { useState } from "react"
 import "./ProductCard.css"
 import PropTypes, { func } from "prop-types";
 import QuantityPicker from "./QauntityPicker";
+import { useOutletContext } from "react-router-dom";
 
 const MAX_QUANTITY = 100;
 
-export default function ProductCard({imgSrc, title, cost}) {
+export default function ProductCard({imgSrc, title, cost, productID, handleAddCartClick}) {
     const [quantity, setQuantity] = useState(0);
-
-    function handleCartClick() {
-        return 
-    }
-
+    
     function plusButtonHandler() {
         if(quantity < MAX_QUANTITY){
             setQuantity(quantity => quantity + 1);
@@ -43,7 +40,7 @@ export default function ProductCard({imgSrc, title, cost}) {
                             plusButtonHandler= {plusButtonHandler}
                             inputHandler={inputHandler} />
             <p>{"$" + cost}</p>
-            <button className="addToCartBtn" onClick={handleCartClick}>Add to cart</button>
+            <button className="addToCartBtn" onClick={() => handleAddCartClick(productID, quantity)}>Add to cart</button>
         </article>
     )
 }
@@ -51,5 +48,6 @@ export default function ProductCard({imgSrc, title, cost}) {
 ProductCard.propTypes = {
     imgSrc: PropTypes.string,
     title: PropTypes.string,
-    cost: PropTypes.number
+    cost: PropTypes.number,
+    handleAddCartClick: PropTypes.func
 }

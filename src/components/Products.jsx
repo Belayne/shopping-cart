@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useOutletContext, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import styles from "./Products.module.css"
@@ -44,6 +44,26 @@ export default function Products() {
     const params = useParams();
     const category = params.category;
     const {productData, error, loading} = getProducts(category)
+    const handleCartQuantity = useOutletContext();
+
+    function handleAddCartClick(id, quantity) {
+        if(quantity == 0) return;
+
+        const itemToAdd = productData.find(product => product.id == id);
+        const cart = localStorage.cart? JSON.parse(localStorage.cart): [];
+        itemToAdd.quantity = quantity;
+
+        const newCart = cart.filter(product => product.id != id);
+        newCart.push(itemToAdd)
+
+        const cartQuantity = newCart.reduce((totalQuantity, product) => totalQuantity + product.quantity, 0)
+
+        handleCartQuantity(cartQuantity);
+
+        localStorage.cart = JSON.stringify(newCart);
+
+        console.log(JSON.parse(localStorage.cart));
+    }
 
     if(loading) {
         return <p className={styles.loadingText}>Loading...</p>
@@ -55,7 +75,7 @@ export default function Products() {
 
     return (
         <>
-        {productData.map(product => <ProductCard key = {product.id} imgSrc= {product.image} title = {product.title} cost = {product.price}/>)}
+        {productData.map(product => <ProductCard key = {product.id} productID={product.id} imgSrc= {product.image} title = {product.title} cost = {product.price} handleAddCartClick={handleAddCartClick}/>)}
         </>
     )
 
