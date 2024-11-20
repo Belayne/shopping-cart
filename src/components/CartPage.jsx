@@ -8,7 +8,7 @@ export default function CartPage() {
     return (
         <main className={styles.cartContainer}>
             <h2>Cart</h2>
-            {cart? cart.map(product => <CartItem imgSrc={product.image} itemName={product.title} cost={product.price} quantity={product.quantity}></CartItem>): <p>Your cart is empty.</p>}
+            {cart? cart.map(product => <CartItem key={product.id} imgSrc={product.image} itemName={product.title} cost={product.price} quantity={product.quantity}></CartItem>): <p>Your cart is empty.</p>}
             <button>Proceed to checkout</button>
         </main>
     )

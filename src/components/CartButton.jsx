@@ -6,7 +6,7 @@ import "./CartButton.css"
 export default function CartButton({numberOfItems = 0}) {
     return (
         <div className="cartButtonContainer">
-            <Link><img src={cartIcon} alt="shopping cart icon" /></Link>
+            <Link to="/cart"><img src={cartIcon} alt="shopping cart icon" /></Link>
             <span className="numberOfItems">{numberOfItems}</span>
         </div>
     )
