@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import styles from "./CartItem.module.css";
+import CartDeleteItemButton from "./CartDeleteItemButton";
 
-export default function CartItem({imgSrc, itemName, quantity, cost}) {
+export default function CartItem({id, imgSrc, itemName, quantity, cost, deleteItem}) {
 
     return (
         <article className={styles.cartItem}>
@@ -11,14 +12,16 @@ export default function CartItem({imgSrc, itemName, quantity, cost}) {
                 <p>Price:    <span className={styles.bold}>${cost}</span></p>
                 <p>Quantity: <span className={styles.bold}>{quantity}</span></p>
             </div>
-            <button>Remove</button>
+            <CartDeleteItemButton id = {id} deleteItem={deleteItem}/>
         </article>
     )
 }
 
 CartItem.propTypes = {
+    id: PropTypes.number,
     imgSrc: PropTypes.string,
     itemName: PropTypes.string,
     quantity: PropTypes.number,
-    cost: PropTypes.number
+    cost: PropTypes.number,
+    deleteItem: PropTypes.func
 } 

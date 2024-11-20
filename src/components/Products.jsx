@@ -56,13 +56,8 @@ export default function Products() {
         const newCart = cart.filter(product => product.id != id);
         newCart.push(itemToAdd)
 
-        const cartQuantity = newCart.reduce((totalQuantity, product) => totalQuantity + product.quantity, 0)
-
-        handleCartQuantity(cartQuantity);
-
         localStorage.cart = JSON.stringify(newCart);
-
-        console.log(JSON.parse(localStorage.cart));
+        handleCartQuantity();
     }
 
     if(loading) {

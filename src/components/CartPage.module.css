@@ -12,6 +12,7 @@
 .cartItemList {
     display: flex;
     max-height: 80vh;
+    min-width: 700px;
     overflow-y: auto;
     flex-direction: column;
     gap: 10px;
@@ -31,4 +32,9 @@
     gap: 20px;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.emptyCart {
+    margin-top: 40px;
+    text-align: center;
 }

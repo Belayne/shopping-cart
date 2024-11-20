@@ -5,9 +5,19 @@ import { useState } from 'react'
 
 function App() {
   const [numberOfItems, setNumberOfItems] = useState(0);
+  const [firstLoad, setFirstLoad] = useState(true);
 
-  function handleCartQuantity(quantity) {
-    setNumberOfItems(quantity)
+  if(firstLoad) {
+    localStorage.clear();
+    setFirstLoad(false);
+  }
+
+  function handleCartQuantity() {
+    if(localStorage?.cart != undefined) {
+      const cart = JSON.parse(localStorage.cart)
+      const quantity = cart.reduce((totalQuantity, item) => item.quantity + totalQuantity, 0)
+      setNumberOfItems(quantity)
+    }
   }
 
   return (

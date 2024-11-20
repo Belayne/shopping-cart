@@ -14,10 +14,11 @@ body {
   overflow-x: hidden;
 }
 
-button:active {
-  transform: scale(0.9);
-}
-
 button:hover {
   cursor: pointer;
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(1);
 }
